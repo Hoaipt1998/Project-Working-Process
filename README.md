@@ -32,3 +32,7 @@ Thành viên 4:
     - Email: nguyendat1099@gmail.com
     - SĐT: 0868664560
     - Facebook: https://www.facebook.com/dat.nguyentan.986
+    - Email: hoaipt1998@gmail.com
+    - SĐT: 0364144666
+    - Facebook: https://www.facebook.com/Phanthanhhoaihcmute/
+>>>>>>> Phan_Thanh_Hoài
