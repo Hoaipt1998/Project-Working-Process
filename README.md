@@ -28,3 +28,9 @@ Thành viên 5:\
     - Email: hoaipt1998@gmail.com\
     - SĐT: 0364144666\
     - Facebook: https://www.facebook.com/phanthanhhoaihcmute
+
+Thành viên 6:\
+- Họ và tên: Trần Đức Kiệt\
+- Email: tranduckiet2020@gmail.com\
+- SĐT: 0907873867\
+- Facebook: https://www.facebook.com/kiet141
