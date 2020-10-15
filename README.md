@@ -28,3 +28,12 @@ Thành viên 5:\
     - Email: tranduckiet2020@gmail.com\
     - SĐT: 0907873867\
     - Facebook: https://www.facebook.com/kiet141
+<<<<<<< HEAD
+=======
+
+Thành viên 6:\
+    - Họ và tên: Phan Thanh Hoài\
+    - Email: hoaipt1998@gmail.com\
+    - SĐT: 0364144666\
+    - Facebook: https://www.facebook.com/phanthanhhoaihcmute
+>>>>>>> Phan_Thanh_Hoài
