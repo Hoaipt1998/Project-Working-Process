@@ -27,3 +27,8 @@ Thành viên 3:
     - SĐT: 0378938915
     - Facebook: https://www.facebook.com/tibbers.annie.75/
 >>>>>>> Vo_Thanh_Van
+Thành viên 4:
+    - Họ và tên: Nguyễn Tấn Đạt
+    - Email: nguyendat1099@gmail.com
+    - SĐT: 0868664560
+    - Facebook: https://www.facebook.com/dat.nguyentan.986
