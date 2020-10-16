@@ -100,4 +100,11 @@ exports.findProducts = async (req, res) => {
         console.log(e);
         res.status(500).send('Server is errors.');
     }
+
+exports.deleteProduct = async(req,res)=>{
+    Product.findByIdAndRemove(req.params.id,(err,product)=>{
+        if(err){
+            return res.json({'success':false,'massage':'Some Error'});
+        }return res.json({'success':true,'message':product.name+'deleted successfully'});
+    })
 };
