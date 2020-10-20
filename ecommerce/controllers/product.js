@@ -37,11 +37,12 @@ exports.getProduct = async (req, res) => {
 
 exports.createProduct = async (req, res) => {
     try {
-        if (!isEmptyObject(req.body)) {
+        if (isEmptyObject(req.body)) {
             return res.status(400).json({ errors: 'Please provide more infomation of product.' })
         }
 
-        const product = new Product(req.body);
+        const product = await Product.create(req.body);
+        
         res.json(product);
     }
     catch (e) {
@@ -80,19 +81,21 @@ exports.editProduct = async (req, res) => {
         updates.forEach(update => currentProduct[update] = productUpdate[update]);
 
         await currentProduct.save();
+
+        res.json(currentProduct);
     }
     catch (e) {
         console.log(e);
         res.status(500).send('Server is errors.');
     }
-}
+};
 
 // query -> /api/product/find?name=iphone12
 exports.findProducts = async (req, res) => {
     try {
-        const name = req.query.name || '';
+        const name = req.query.name || ''
 
-        const products = await Product.find({ name });
+        const products = await Product.find({ name: { $regex: new RegExp(name, "i") } });
 
         res.json(products);
     }
@@ -100,11 +103,12 @@ exports.findProducts = async (req, res) => {
         console.log(e);
         res.status(500).send('Server is errors.');
     }
+};
 
-exports.deleteProduct = async(req,res)=>{
-    Product.findByIdAndRemove(req.params.id,(err,product)=>{
-        if(err){
-            return res.json({'success':false,'massage':'Some Error'});
-        }return res.json({'success':true,'message':product.name+'deleted successfully'});
+exports.deleteProduct = async (req, res) => {
+    Product.findByIdAndRemove(req.params.id, (err, product) => {
+        if (err) {
+            return res.json({ 'success': false, 'massage': 'Some Error' });
+        } return res.json({ 'success': true, 'message': product.name + 'deleted successfully' });
     })
 };
