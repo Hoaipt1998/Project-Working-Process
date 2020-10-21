@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { createProduct, getProduct, getProducts, findProducts, editProduct, deleteProduct }
     = require('../controllers/product');
+const upload = require('../utils/upload');
 
 //route GET /api/products
 router.get('/', getProducts);
@@ -12,7 +13,7 @@ router.get('/find', findProducts);
 router.get('/:id', getProduct);
 
 //route POST /api/product
-router.post('/', createProduct);
+router.post('/', upload.single('image'), createProduct);
 
 //router PUT /api/prododuct/:id
 router.put('/:id', editProduct);
