@@ -1,0 +1,16 @@
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+.a-start{
+    align-items: flex-start;
+}
+.a-center{
+    align-items: center;
+}
+.j-between{
+    justify-content: space-between;
+}
+.j-center{
+    justify-content: center;
+}
