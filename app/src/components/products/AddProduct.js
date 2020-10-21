@@ -53,7 +53,7 @@ const AddProduct = ({ history }) => {
                 className="form-horizontal" encType="multipart/form-data">
                 <fieldset>
                     <legend className="ml-3">PRODUCTS</legend>
-                    <Link className="text-primary" to="/">Go Home</Link>
+                
                     <div className="form-group">
                         <label className="col-md-4 control-label" for="product_name">Product Name</label>
                         <div className="col-md-4">

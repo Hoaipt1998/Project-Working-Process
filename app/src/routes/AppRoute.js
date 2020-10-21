@@ -4,7 +4,7 @@ import Dashboard from '../components/Dashboard';
 import ProductPage from '../components/ProductPage';
 import Login from '../components/Login';
 import Register from '../components/Register';
-import Navbar from '../components/NavBar';
+import Nvabar from '../components/NavBar';
 import AddProduct from '../components/products/AddProduct';
 
 const AppRoute = () => (
