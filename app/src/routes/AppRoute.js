@@ -5,8 +5,6 @@ import ProductPage from '../components/ProductPage';
 import Login from '../components/Login';
 import Register from '../components/Register';
 import Nvabar from '../components/Nvabar';
-import Navbar from '../components/Nvabar';
-
 
 const AppRoute = () => (
     <>
