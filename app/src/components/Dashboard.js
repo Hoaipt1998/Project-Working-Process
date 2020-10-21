@@ -1,15 +1,13 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import dashboard from '../services/Dashboard';
-import { CartContext } from '../components/Cart';
 
 const Dashboard = () => {
-
-  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     const loadProducts = async () => {
       const products = await dashboard();
       if (products) {
+        console.log(products)
         setProducts(products);
       }
     }
@@ -47,21 +45,14 @@ const Dashboard = () => {
                 </div>
                 <h6 className="font-weight-bold my-2"> </h6>
                 <br />
-
                 <button style={{ height: '40px', width: '90px', backgroundColor: 'blue', color: 'white', borderRadius: '5px', border: 'none' }}>Add to card</button>
-
-                <button style={{
-                  height: '40px', width: '90px', backgroundColor: 'blue', color: 'white', borderRadius: '5px', border: 'none'
-                }}
-                  onClick={() => addToCart(product)}
-                >Add to Cart</button>
                 <button style={{ height: '40px', width: '90px', backgroundColor: 'yellow', color: 'rgb(0, 0, 0)', borderRadius: '5px', border: 'none' }}>Detail</button>
               </div>
             </div>
           </div>
         ))}
       </div>
-    </div >
+    </div>
   )
 }
 export default Dashboard;

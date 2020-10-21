@@ -4,10 +4,10 @@ import Dashboard from '../components/Dashboard';
 import ProductPage from '../components/ProductPage';
 import Login from '../components/Login';
 import Register from '../components/Register';
-import Nvabar from '../components/NavBar';
 import AddProduct from '../components/products/AddProduct';
 import CartPage, { CartProvider } from '../components/Cart';
-
+import Navbar from '../components/NavBar';
+import  getProduct  from '../services/Productdetail';
 const AppRoute = () => (
     <>
         <BrowserRouter>
@@ -19,6 +19,7 @@ const AppRoute = () => (
                         <Route exact={true} path="/cart" component={CartPage} />
                         <Route exact={true} path="/products" component={ProductPage} />
                         <Route exact={true} path="/products/add" component={AddProduct} />
+                        <Route exact={true} path="/products/getProduct" component={getProduct} />
                         <Route exact={true} path={["/", "/dashboard"]} component={Dashboard} />
                         <Route exact={true} path="/login" component={Login} />
                     </Switch>
