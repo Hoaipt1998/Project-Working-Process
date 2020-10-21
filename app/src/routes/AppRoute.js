@@ -4,14 +4,16 @@ import Dashboard from '../components/Dashboard';
 import ProductPage from '../components/ProductPage';
 import Login from '../components/Login';
 import Register from '../components/Register';
-import Navbar from '../components/NavBar';
 import AddProduct from '../components/products/AddProduct';
-
+import CartPage, { CartProvider } from '../components/Cart';
+import Navbar from '../components/NavBar';
+import  getProduct  from '../services/Productdetail';
 const AppRoute = () => (
     <>
         <BrowserRouter>
             <Route exact={true} path="/register" component={Register} />
-            <Nvabar />
+<<<<<<< HEAD
+            <Navbar />
             <section className="">
                 <Switch>
                     <Route exact={true} path="/products" component={ProductPage} />
@@ -20,6 +22,21 @@ const AppRoute = () => (
                     <Route exact={true} path="/login" component={Login} />
                 </Switch>
             </section>
+=======
+            <CartProvider>
+                <Navbar />
+                <section className="">
+                    <Switch>
+                        <Route exact={true} path="/cart" component={CartPage} />
+                        <Route exact={true} path="/products" component={ProductPage} />
+                        <Route exact={true} path="/products/add" component={AddProduct} />
+                        <Route exact={true} path="/products/getProduct" component={getProduct} />
+                        <Route exact={true} path={["/", "/dashboard"]} component={Dashboard} />
+                        <Route exact={true} path="/login" component={Login} />
+                    </Switch>
+                </section>
+            </CartProvider>
+>>>>>>> 9760bdfa0c6190b4eccfe4f094ef9bc050e028ba
         </BrowserRouter>
     </>
 );
