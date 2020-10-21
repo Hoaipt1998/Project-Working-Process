@@ -27,7 +27,7 @@ exports.getProduct = async (req, res) => {
             return res.status(404).send('Product is not found.');
         }
 
-        res.json(products);
+        res.json(product);
     }
     catch (e) {
         console.log(e);
