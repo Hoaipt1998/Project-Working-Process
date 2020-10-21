@@ -37,6 +37,11 @@ const Navbar = () => {
                 EditProduct
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" exact to="/product">
+                Cart (0)
+              </NavLink>
+            </li>
           </ul>
         </div>
 

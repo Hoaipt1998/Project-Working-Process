@@ -10,7 +10,7 @@ const AppRoute = () => (
     <>
         <BrowserRouter>
             <Route exact={true} path="/register" component={Register} />
-            <Navbar />
+            <Nvabar />
             <section className="">
                 <Switch>
                     <Route exact={true} path="/products" component={ProductPage} />
