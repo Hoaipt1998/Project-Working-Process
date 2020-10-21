@@ -6,20 +6,24 @@ import Login from '../components/Login';
 import Register from '../components/Register';
 import Nvabar from '../components/NavBar';
 import AddProduct from '../components/products/AddProduct';
+import CartPage, { CartProvider } from '../components/Cart';
 
 const AppRoute = () => (
     <>
         <BrowserRouter>
             <Route exact={true} path="/register" component={Register} />
-            <Nvabar />
-            <section className="">
-                <Switch>
-                    <Route exact={true} path="/products" component={ProductPage} />
-                    <Route exact={true} path="/products/add" component={AddProduct} />
-                    <Route exact={true} path={["/", "/dashboard"]} component={Dashboard} />
-                    <Route exact={true} path="/login" component={Login} />
-                </Switch>
-            </section>
+            <CartProvider>
+                <Navbar />
+                <section className="">
+                    <Switch>
+                        <Route exact={true} path="/cart" component={CartPage} />
+                        <Route exact={true} path="/products" component={ProductPage} />
+                        <Route exact={true} path="/products/add" component={AddProduct} />
+                        <Route exact={true} path={["/", "/dashboard"]} component={Dashboard} />
+                        <Route exact={true} path="/login" component={Login} />
+                    </Switch>
+                </section>
+            </CartProvider>
         </BrowserRouter>
     </>
 );

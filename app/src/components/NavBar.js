@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { CartContext } from '../components/Cart';
 
 const Navbar = () => {
+
+  const { cartItems } = useContext(CartContext);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container">
@@ -38,8 +42,8 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" exact to="/product">
-                Cart (0)
+              <NavLink className="nav-link" exact to="/cart">
+                Cart ({cartItems.length})
               </NavLink>
             </li>
           </ul>
