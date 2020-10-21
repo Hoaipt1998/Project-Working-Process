@@ -4,7 +4,8 @@ import Dashboard from '../components/Dashboard';
 import ProductPage from '../components/ProductPage';
 import Login from '../components/Login';
 import Register from '../components/Register';
-import Nvabar from '../components/Nvabar';
+import Navbar from '../components/NavBar';
+import AddProduct from '../components/products/AddProduct';
 
 const AppRoute = () => (
     <>
@@ -14,6 +15,7 @@ const AppRoute = () => (
             <section className="">
                 <Switch>
                     <Route exact={true} path="/products" component={ProductPage} />
+                    <Route exact={true} path="/products/add" component={AddProduct} />
                     <Route exact={true} path={["/", "/dashboard"]} component={Dashboard} />
                     <Route exact={true} path="/login" component={Login} />
                 </Switch>
