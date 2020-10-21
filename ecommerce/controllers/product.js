@@ -42,6 +42,11 @@ exports.createProduct = async (req, res) => {
         }
 
         const product = await Product.create(req.body);
+
+        if (req.file) {
+            product.imageUrl = req.file.buffer;
+            await product.save();
+        }
         
         res.json(product);
     }
