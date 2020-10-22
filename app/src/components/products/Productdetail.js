@@ -33,8 +33,8 @@ const Productdetail = ({ match
     return (
         <div className="container">
             <div className="row">
-                <div className="col-md-6">{product.imageUrl && <img src={`data:image/jpg;base64,${_arrayBufferToBase64(product.imageUrl.data)}`} alt="product_image" width="200px" className="ml-lg-5 order-1 order-lg-2" />}</div>
-                <div className="col-md-6">
+                <div className="col-md-6">{product.imageUrl && <img src={`data:image/jpg;base64,${_arrayBufferToBase64(product.imageUrl.data)}`} alt="product_image" width="90%" height={300} className="ml-lg-5 my-lg-5 order-1 order-lg-2 border" />}</div>
+                <div className="col-md-6 my-lg-5">
                     <div className="media align-items-lg-center flex-column flex-lg-row p-3">
                         <div className="media-body order-2 order-lg-1">
                             {
@@ -46,7 +46,7 @@ const Productdetail = ({ match
                                         <div style={{ paddingTop: '10px' }}> <b>Category :</b> <span style={{ color: 'blue' }}>{product.category}</span></div>
                                 <div style={{ paddingTop: '10px' }}> <b>Unit in stock :</b> <span>{product.quantity}</span></div>
                                         <div style={{ paddingTop: '10px' }} className="d-flex align-items-center justify-content-between mt-1">
-                                            <h6 className="font-weight-bold my-2">{product.price} VND</h6>
+                                            <h4 className="font-weight-bold my-2" style={{ color: 'red' }}>{product.price} $</h4>
                                         </div>
                                     </>
                                 )
@@ -56,9 +56,10 @@ const Productdetail = ({ match
                 </div>
             </div>
 
-            <div className="row">
-                <div className="col-12">
-                    <form onSubmit={async (e) => {
+            <div className="row container">
+                
+                <div className="col-12" >
+                    <form  onSubmit={async (e) => {
                         e.preventDefault();
 
                         const date = Date.now();
@@ -67,31 +68,31 @@ const Productdetail = ({ match
 
 
                         alert(result && "Upload successs");
-                    }}>
-
+                    }} className="border  p-4" >
+                        <h1 className="row justify-content-center">Comment</h1>
                         <div className="form-group">
-                            <input type="text" class="form-control" placeholder="Name" aria-label="Recipient's username" aria-describedby="button-addon2"
+                            <h5 className="">Name :</h5>
+                            <input type="text" class="form-control"  placeholder="Name" aria-label="Recipient's username" aria-describedby="button-addon2"
                                 name="nameUser" value={nameUser} onChange={(e) => setNameUser(e.target.value)} />
                         </div>
-
+                        <h5 className="">Comment :</h5>
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Comment" aria-label="Recipient's username" aria-describedby="button-addon2"
                                 name="comment" value={comment} onChange={(e) => setComment(e.target.value)} />
                             <div class="input-group-append">
-                                <button class="btn btn-warning" type="submit" id="button-addon2">Comment</button>
+                                <button   class="btn btn-warning" type="submit" id="button-addon2" >Comment</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
 
-
+            <h4 className="container row justify-content-center mt-4 ">PRODUCT ASSESSMENT</h4>
             {product.reviews && product.reviews.map(review => (
-                <div className="row">
-                    <div className="bg-light" key={review._id}>
-                        <h5>{review.name}</h5>
-                        <br />
-                        <p>{review.comment}</p>
+                <div className="row mt-3">
+                    <div className="container " style={{backgroundColor:"#007bff",opacity:0.7, borderRadius:8, display:"inline"}} key={review._id}>
+                        <h5 style={{fontSize:16, color:'black'}}>Name: {review.name}</h5>
+                        <p className="pl-5">{review.comment}</p>
                     </div>
                 </div>
             ))}
