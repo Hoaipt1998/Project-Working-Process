@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { createProduct, getProduct, getProducts, findProducts, editProduct, deleteProduct }
+const { createProduct, getProduct, getProducts, findProducts, editProduct, deleteProduct, reviewProduct }
     = require('../controllers/product');
 const upload = require('../utils/upload');
 
@@ -17,6 +17,8 @@ router.post('/', upload.single('image'), createProduct);
 
 //router PUT /api/prododuct/:id
 router.put('/:id', editProduct);
+
+router.put('/:id/review', reviewProduct);
 
 //router DELETE /api/prododuc/:id
 router.delete('/:id', deleteProduct);
