@@ -7,23 +7,24 @@ const Navbar = () => {
 
   const { cartItems } = useContext(CartContext);
 
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const userCookie = getUser();
     if (userCookie) {
+      console.log(userCookie)
       setUser(userCookie);
     }
   }, []);
 
 
   const handleRemoveUser = () => {
-      removeUser();
-      setUser(null);
+    removeUser();
+    setUser(null);
   }
 
   const authenticated = (user) => {
-    return user.role !== 0 ? (
+    return user && user.role !== 0 ? (
       <>
         <div className="text-right">
           <Link className="btn btn-outline-light" to="/products/add">Add Product</Link>
@@ -35,9 +36,16 @@ const Navbar = () => {
       </>
 
     ) : (
-        <div className="text-right">
-          {user && <label className="mr-3">Hello, {user.name}</label>}
-        </div>
+        <>
+          <div className="text-right">
+            {user && <label className="mr-3">Hello, {user.name}</label>}
+          </div>
+
+          <div className="text-right">
+            <button className="btn btn-outline-light"
+              onClick={() => handleRemoveUser()}>Log Out</button>
+          </div>
+        </>
       )
   }
 
