@@ -101,17 +101,15 @@ main{
                 margin-top: 20px;
                 margin-bottom: 30px;
                 input{
-                    display: none;
+                    // display: none;
                     
-                    &:checked{
-                        ~label:after{
-                            display: block;
-                        }
-                    }
+                    // &:checked{
+                    //     ~label:after{
+                    //         display: block;
+                    //     }
+                    // }
                     
                   
-
-
                 }
                 label{
                     position: relative;
@@ -123,31 +121,31 @@ main{
                             color: #52A494;
                         }
                     }
-                    &::before{
-                        content: "";
-                        position: absolute;
-                        height: 18px;
-                        width: 18px;
-                        border: 1px solid #BECED0;
-                        background-color: #BECED0;
-                        top:-3px;
-                        left:-30px; 
-                    }
-                    &::after{
-                        content: '\f00c';
-                        font-family: "Font Awesome 5 Free";
-                        position: absolute ;
-                        font-weight: 600;
-                        height: 18px;
-                        width: 18px;
-                        color: #fff;
-                        background-color: black;
-                        border: 1px solid black;
-                        text-align: center;
-                        top:-3px;
-                        left:-30px; 
-                        display: none;
-                    }
+                    // &::before{
+                    //     content: "";
+                    //     position: absolute;
+                    //     height: 18px;
+                    //     width: 18px;
+                    //     border: 1px solid #BECED0;
+                    //     background-color: #BECED0;
+                    //     top:-3px;
+                    //     left:-30px; 
+                    // }
+                    // &::after{
+                    //     content: '\f00c';
+                    //     font-family: "Font Awesome 5 Free";
+                    //     position: absolute ;
+                    //     font-weight: 600;
+                    //     height: 18px;
+                    //     width: 18px;
+                    //     color: #fff;
+                    //     background-color: black;
+                    //     border: 1px solid black;
+                    //     text-align: center;
+                    //     top:-3px;
+                    //     left:-30px; 
+                    //     display: none;
+                    // }
                 }
             }
             .button{
