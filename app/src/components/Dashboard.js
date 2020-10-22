@@ -47,21 +47,19 @@ const Dashboard = () => {
 
   return (
     <div className="container ">
-      <div className="row">
-      
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 m-4">
-      <div className="input-group">
-      <input type="text" className="form-control" placeholder="Search" 
-      value={search}
-      onChange = {(e) => onChangeSearch(e)}/>
-      <span className="input-group-btn">
-        <button type="button" className="btn btn-primary" onClick = {onClickSearch}>Search</button>
-      </span>
+    <div className="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 m-4">
+    <div className="input-group">
+    <input type="text" className="form-control" placeholder="Search" 
+    value={search}
+    onChange = {(e) => onChangeSearch(e)}/>
+    <span className="input-group-btn">
+      <button type="button" className="btn btn-primary" onClick = {onClickSearch}>Search</button>
+    </span>
+  </div>
     </div>
-      </div>
-      
-      
-      
+    </div>
+      <div className="row">
         {products && products.map((product) => (
           <div className="col-md-4" key={product._id}>
             <div className="media align-items-lg-center flex-column flex-lg-row p-3">
