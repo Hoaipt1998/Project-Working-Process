@@ -9,7 +9,12 @@ const productSchema = Schema({
     manufacturer: String,
     category: String,
     conditionProduct: String,
-    quantity: Number
+    quantity: Number,
+    reviews: [{
+        name: String,
+        comment: String,
+        date: Date
+    }]
 }, {
     timeStamps: true
 });

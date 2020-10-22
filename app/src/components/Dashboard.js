@@ -34,7 +34,7 @@ const Dashboard = () => {
     <div className="container">
       <div className="row">
         {products && products.map((product) => (
-          <div className="col-md-4">
+          <div className="col-md-4" key={product._id}>
             <div className="media align-items-lg-center flex-column flex-lg-row p-3">
               <div className="media-body order-2 order-lg-1">
                 <h3 className="mt-0 font-weight-bold mb-2">{product.name}</h3>
@@ -45,7 +45,7 @@ const Dashboard = () => {
                 </div>
                 <h6 className="font-weight-bold my-2"> </h6>
                 <br />
-                <button className="btn btn-primary" 
+                <button className="btn btn-primary"
                   onClick={() => addToCart(product)}
                 >Add to Cart</button>
                 <Link className="btn btn-success" to={`/products/${product._id}`}>Detail</Link>

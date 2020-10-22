@@ -47,7 +47,7 @@ exports.createProduct = async (req, res) => {
             product.imageUrl = req.file.buffer;
             await product.save();
         }
-        
+
         res.json(product);
     }
     catch (e) {
@@ -103,6 +103,33 @@ exports.findProducts = async (req, res) => {
         const products = await Product.find({ name: { $regex: new RegExp(name, "i") } });
 
         res.json(products);
+    }
+    catch (e) {
+        console.log(e);
+        res.status(500).send('Server is errors.');
+    }
+};
+
+exports.reviewProduct = async (req, res) => {
+    try {
+        const id = req.params.id;
+
+        if (!id) {
+            return res.status(400).send('Please provide id of product.');
+        }
+
+        const product = await Product.findById(id);
+
+        if (!product) {
+            return res.status(404).send('Product is not found.');
+        }
+
+        product.reviews.unshift(req.body);
+       
+        await product.save();
+        res.json(product);
+        
+
     }
     catch (e) {
         console.log(e);
