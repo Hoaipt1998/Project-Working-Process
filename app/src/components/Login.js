@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import login from '../services/Login';
-function Login() 
-{
+import { setUser, getUser } from '../utils/cookie';
+import { Redirect } from 'react-router-dom';
+
+function Login() {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
+
+  if (getUser()) {
+    return <Redirect to="/" />
+  }
 
   const { email, password } = formData;
 
@@ -15,7 +21,7 @@ function Login()
     e.preventDefault();
     console.log(formData);
     const result = await login({ email, password });
-    alert(result);
+    setUser(result);
   };
   return (
     <div className="" style={{  
@@ -45,10 +51,8 @@ function Login()
               </div>
             </form>
         </div>
-        
-        
       </main>
-      
+
     </div>
     
   );
