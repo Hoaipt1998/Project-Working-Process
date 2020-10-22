@@ -12,7 +12,7 @@ import Productdetail from '../components/products/Productdetail';
 const AppRoute = () => (
     <>
         <BrowserRouter>
-            <Route exact={true} path="/register" component={Register} />
+            
             <CartProvider>
                 <Navbar />
                 <section className="">
@@ -22,7 +22,8 @@ const AppRoute = () => (
                         <Route exact={true} path="/products/add" component={AddProduct} />
                         <Route exact={true} path="/products/:id" component={Productdetail} />                
                         <Route exact={true} path={["/", "/dashboard"]} component={Dashboard} />
-                        <Route exact={true} path="/login" component={Login} />
+                        <Route exact={true} path="/register" component={Register} />
+                        <Route exact={true} path="/login" component={Login} />  
                     </Switch>
                 </section>
             </CartProvider>
