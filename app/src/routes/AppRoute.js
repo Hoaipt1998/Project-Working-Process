@@ -8,6 +8,7 @@ import AddProduct from '../components/products/AddProduct';
 import CartPage, { CartProvider } from '../components/Cart';
 import Navbar from '../components/NavBar';
 import Productdetail from '../components/products/Productdetail';
+import Support from '../components/Support';
 
 const AppRoute = () => (
     <>
@@ -26,6 +27,8 @@ const AppRoute = () => (
                     </Switch>
                 </section>
             </CartProvider>
+
+            <Support />
         </BrowserRouter>
     </>
 );

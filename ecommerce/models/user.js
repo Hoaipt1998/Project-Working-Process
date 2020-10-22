@@ -3,56 +3,61 @@ const crypto = require('crypto')
 const uuidv1 = require('uuidv1')
 
 const userSchema = new mongoose.Schema({
-    name: {
+    name:{
         type: String,
-        trim: true,
+        trim:true,
         required: true,
-        maxlength: 32
+        maxlength:32
     },
-    email: {
+    email:{
         type: String,
-        trim: true,
+        trim:true,
         required: true,
-        unique: 32
+        unique:32
     },
-    hassed_password: {
+    hassed_password:{
         type: String,
         required: true,
     },
-    about: {
+    about:{
         type: String,
-        trim: true,
+        trim:true,
     },
     salt: String,
-    role: {
-        type: Number,
+    role:{
+        type:Number,
         default: 0
     },
-    history: {
+    history:{
         type: Array,
         default: []
     }
-}, { timestamps: true });
+}, {timestamps: true});
 
 //virtual field
 userSchema.virtual("password")
-    .set(function (password) {
-        this._password = password
-        this.salt = uuidv1()
-        this.hassed_password = this.encrytPassword(password)
-    })
-    .get(function () {
-        return this._password
-    })
+.set(function(password){
+    this._password = password
+    this.salt = uuidv1()
+    this.hassed_password = this.encrytPassword(password) 
+})
+.get(function(){
+    return this._password
+})
 
-userSchema.methods = {
-    encrytPassword: function (password) {
-        if (!password) return "";
-        try {
+userSchema.methods ={
+    authenticate: function(plainText){
+        return this.encrytPassword(plainText) === this.hassed_password;
+    },
+
+
+    encrytPassword: function(password){
+        if(!password) return "";
+        try{
             return crypto.createHmac("sha1", this.salt).update(password).digest("hex")
-        } catch (err) {
+        }catch(err){
             return "";
-        }
+        } 
     }
 };
 module.exports = mongoose.model("User", userSchema)

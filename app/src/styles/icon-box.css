@@ -1,0 +1,9 @@
+.icon_chat_facebook {
+    background: url("https://www.viettablet.com/design/themes/duchuymobile/media/images/facebook-messenger.png?1574736690") no-repeat;
+    width: 64px;
+    height: 64px;
+    background-size: cover;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
