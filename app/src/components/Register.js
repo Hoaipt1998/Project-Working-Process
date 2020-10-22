@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/bt8-2.scss';
-import '../styles/reset.scss';
+//import '../styles/reset.scss';
 import register from '../services/Register';
 
 const Register = () => {
