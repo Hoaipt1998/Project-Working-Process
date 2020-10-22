@@ -47,7 +47,7 @@ const Dashboard = () => {
 
   return (
     <div className="container ">
-    <div className="row">
+    <div className="row justify-content-center">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 m-4">
     <div className="input-group">
     <input type="text" className="form-control" placeholder="Search" 
@@ -61,23 +61,21 @@ const Dashboard = () => {
     </div>
       <div className="row">
         {products && products.map((product) => (
-          <div className="col-md-4" key={product._id}>
-            <div className="media align-items-lg-center flex-column flex-lg-row p-3">
+
+          <div className="col-md-3 my-3">
+            <div className="media align-items-lg-center flex-column flex-lg-row p-3 border">
               <div className="media-body order-2 order-lg-1">
-                <h3 className="mt-0 font-weight-bold mb-2">{product.name}</h3>
-                <div style={{ textAlign: 'center' }}>{product.imageUrl && <img src={`data:image/jpg;base64,${_arrayBufferToBase64(product.imageUrl.data)}`} alt="Generic placeholder image" width={250} height={350} className="ml-lg-5 order-1 order-lg-2" />}</div>
-                <br/>
-            <h5>{product.price }VDN</h5>
-                <p>{product.description}</p>
-                <div className="d-flex align-items-center justify-content-between mt-1">
-                  <h6 className="font-weight-bold my-2"></h6>
+                <h5 className="mt-0 font-weight-bold mb-2">{product.name}</h5>
+                <div style={{ textAlign: 'center' }}>{product.imageUrl && <img src={`data:image/jpg;base64,${_arrayBufferToBase64(product.imageUrl.data)}`} alt="Generic placeholder image"  height={300} width ="100%" className="  order-1 order-lg-2 mb-4" />}</div>
+                <p className=" ">{product.description}</p>
+                <p className="font-weight-bold" style={{color:'red'}} >{product.price} $ </p>
+                <div className ="flex justify-content-between ">
+                    <button className="btn btn-primary" 
+                      onClick={() => addToCart(product)}>Add to Cart</button>
+                    <Link className="btn btn-success" to={`/products/${product._id}`}>Detail</Link>
                 </div>
-                <h6 className="font-weight-bold my-2"> </h6>
-                <br />
-                <button className="btn btn-primary"
-                  onClick={() => addToCart(product)}
-                >Add to Cart</button>
-                <Link className="btn btn-success" to={`/products/${product._id}`}>Detail</Link>
+                
+
               </div>
             </div>
           </div>

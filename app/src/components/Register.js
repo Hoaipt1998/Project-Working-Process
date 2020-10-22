@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/bt8-2.scss';
-import '../styles/reset.scss';
+//import '../styles/reset.scss';
 import register from '../services/Register';
 
 const Register = () => {
@@ -29,7 +29,7 @@ const Register = () => {
                     <div className="main-content">
                         <h5>SAY HELLO</h5>
                         <h3>CREATE ACCOUNT</h3>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est natus <br /> facere aperiam! Tenetur maiores dolore a quod pariatur ut voluptates <br /> quae saepe ea quasi laudantium, iste molestias inventore fuga <br /> assumenda.</p>
+                        <p>The Best Choices For You!!</p>
 
                     </div>
                 </div>
@@ -66,8 +66,8 @@ const Register = () => {
                             <button>Create Account</button>
                         </div>
                         <div className="copy-right text-center">
-                            <p>© 2019 Invent Signup. All rights reserved | Design by</p>
-                            <a href="http://w3layouts.com/" target="_blank">W3layouts</a>
+                            <p>© 2020 Invent Signup. All rights reserved</p>
+                            <a href="http://w3layouts.com/" target="_blank">Design by:Dat Nguyen</a>
                         </div>
                     </form>
                 </div>

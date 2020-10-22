@@ -13,6 +13,7 @@ export class CartProvider extends Component {
 
         this.addToCart = this.addToCart.bind(this);
         this.clearCart = this.clearCart.bind(this);
+        this.removeProductinCart = this.removeProductinCart.bind(this);
     }
 
     componentDidMount() {
@@ -49,11 +50,19 @@ export class CartProvider extends Component {
         });
     }
 
+    removeProductinCart(productremo) {
+        console.log("remove product")
+        this.setState({
+            cartItems: this.state.cartItems.filter(product => product._id !== productremo)
+        });
+    }
+
     render() {
         return <CartContext.Provider value={{
             cartItems: this.state.cartItems,
             addToCart: this.addToCart,
-            clearCart: this.clearCart
+            clearCart: this.clearCart,
+            removeProductinCart: this.removeProductinCart
         }}>
             {
                 this.props.children
@@ -64,7 +73,7 @@ export class CartProvider extends Component {
 
 const CartPage = () => {
 
-    const { cartItems, clearCart } = useContext(CartContext);
+    const { cartItems, clearCart, removeProductinCart } = useContext(CartContext);
 
     const _arrayBufferToBase64 = (buffer) => {
         var binary = '';
@@ -106,7 +115,8 @@ const CartPage = () => {
                                             <td>{product.quantity}</td>
                                             <td><input className="form-control" type="text" /></td>
                                             <td className="text-right">{product.price} $</td>
-                                            <td className="text-right"><button className="btn btn-sm btn-danger"><i className="fa fa-trash" /> </button> </td>
+                                            <td className="text-right"><button className="btn btn-sm btn-danger"
+                                             onClick={()  => removeProductinCart(product._id)}><i className="fa fa-trash" /> remove</button> </td>
                                         </tr>
                                     ))
                                 }
