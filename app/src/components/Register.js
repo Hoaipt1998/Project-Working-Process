@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import '../styles/bt8-2.scss';
 //import '../styles/reset.scss';
 import register from '../services/Register';
+import { setUser, getUser, removeUser } from '../utils/cookie';
+import { Redirect } from 'react-router-dom';
 
 const Register = () => {
 
@@ -11,6 +13,10 @@ const Register = () => {
         email: ''
     });
 
+    if (getUser()) {
+        return <Redirect to="/" />
+    }
+
     const { name, password, email } = formData;
 
     const onChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -19,7 +25,8 @@ const Register = () => {
         e.preventDefault();
         console.log(formData);
         const result = await register({ name, email, password });
-        alert(result);
+       
+        setUser(result);
     };
 
     return (
