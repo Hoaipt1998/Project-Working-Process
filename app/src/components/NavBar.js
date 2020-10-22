@@ -1,10 +1,63 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { CartContext } from '../components/Cart';
+import { getUser, removeUser } from '../utils/cookie';
 
 const Navbar = () => {
 
   const { cartItems } = useContext(CartContext);
+
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const userCookie = getUser();
+    if (userCookie) {
+      console.log(userCookie)
+      setUser(userCookie);
+    }
+  }, []);
+
+
+  const handleRemoveUser = () => {
+    removeUser();
+    setUser(null);
+  }
+
+  const authenticated = (user) => {
+    return user && user.role !== 0 ? (
+      <>
+        <div className="text-right">
+          <Link className="btn btn-outline-light" to="/products/add">Add Product</Link>
+        </div>
+        <div className="text-right">
+          <button className="btn btn-outline-light"
+            onClick={() => handleRemoveUser()}>Log Out</button>
+        </div>
+      </>
+
+    ) : (
+        <>
+          <div className="text-right">
+            {user && <label className="mr-3">Hello, {user.name}</label>}
+          </div>
+
+          <div className="text-right">
+            <button className="btn btn-outline-light"
+              onClick={() => handleRemoveUser()}>Log Out</button>
+          </div>
+        </>
+      )
+  }
+
+  const guest = (
+    <>
+      <Link className="btn btn-success mr-3" to="/login"
+      >Login</Link>
+
+      <Link className="btn btn-info" to="/register"
+      >Sign up</Link>
+    </>
+  )
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -48,8 +101,11 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
+        {
+          user ? authenticated(user) : guest
+        }
 
-        <Link className="btn btn-outline-light" to="/register">Add User</Link>
+
       </div>
     </nav>
   );

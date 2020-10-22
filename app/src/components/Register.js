@@ -2,14 +2,20 @@ import React, { useState } from 'react';
 import '../styles/bt8-2.scss';
 //import '../styles/reset.scss';
 import register from '../services/Register';
+import { setUserRegistered, getUser } from '../utils/cookie';
+import { Redirect, withRouter } from 'react-router-dom';
 
-const Register = () => {
+const Register = ({ history }) => {
 
     const [formData, setFormData] = useState({
         name: '',
         password: '',
         email: ''
     });
+
+    if (getUser()) {
+        return <Redirect to="/" />
+    }
 
     const { name, password, email } = formData;
 
@@ -19,7 +25,9 @@ const Register = () => {
         e.preventDefault();
         console.log(formData);
         const result = await register({ name, email, password });
-        alert(result);
+
+        setUserRegistered(result);
+        history.goBack();
     };
 
     return (
@@ -77,4 +85,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default withRouter(Register);
