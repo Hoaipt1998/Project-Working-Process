@@ -27,8 +27,6 @@ const AppRoute = () => (
                     </Switch>
                 </section>
             </CartProvider>
-
-            <Support />
         </BrowserRouter>
     </>
 );
