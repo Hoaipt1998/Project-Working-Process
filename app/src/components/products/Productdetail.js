@@ -44,7 +44,7 @@ const Productdetail = ({ match
                                         <p style={{ paddingTop: '10px' }}>{product.discription}</p>
                                         <div style={{ paddingTop: '10px' }}><b>Manufacture :</b> {product.manufacturer}</div>
                                         <div style={{ paddingTop: '10px' }}> <b>Category :</b> <span style={{ color: 'blue' }}>{product.category}</span></div>
-                                        <div style={{ paddingTop: '10px' }}> <b>Unit in stock :</b> <span></span></div>
+                                <div style={{ paddingTop: '10px' }}> <b>Unit in stock :</b> <span>{product.quantity}</span></div>
                                         <div style={{ paddingTop: '10px' }} className="d-flex align-items-center justify-content-between mt-1">
                                             <h6 className="font-weight-bold my-2">{product.price} VND</h6>
                                         </div>
