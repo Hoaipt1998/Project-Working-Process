@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import dashboard from '../services/Dashboard';
 import { CartContext } from '../components/Cart';
 import { Link } from 'react-router-dom';
+import SearchProduct from '../services/SearchProduct';
 
 const Dashboard = () => {
 
@@ -19,6 +20,7 @@ const Dashboard = () => {
   }, []);
 
   const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState('');
 
   const _arrayBufferToBase64 = (buffer) => {
     var binary = '';
@@ -30,9 +32,36 @@ const Dashboard = () => {
     return window.btoa(binary);
   }
 
+  const onChangeSearch = (e) => {
+    setSearch(e.target.value);
+  }
+
+  const onClickSearch = async (e) => {
+
+    const result = await SearchProduct(search);
+
+    if (result) {
+        setProducts(result);
+    }
+  }
+
   return (
-    <div className="container">
+    <div className="container ">
       <div className="row">
+      
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 m-4">
+      <div className="input-group">
+      <input type="text" className="form-control" placeholder="Search" 
+      value={search}
+      onChange = {(e) => onChangeSearch(e)}/>
+      <span className="input-group-btn">
+        <button type="button" className="btn btn-primary" onClick = {onClickSearch}>Search</button>
+      </span>
+    </div>
+      </div>
+      
+      
+      
         {products && products.map((product) => (
           <div className="col-md-4" key={product._id}>
             <div className="media align-items-lg-center flex-column flex-lg-row p-3">
