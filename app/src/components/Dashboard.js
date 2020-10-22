@@ -47,7 +47,7 @@ const Dashboard = () => {
 
   return (
     <div className="container ">
-    <div className="row">
+    <div className="row justify-content-center">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 m-4">
     <div className="input-group">
     <input type="text" className="form-control" placeholder="Search" 
@@ -67,15 +67,8 @@ const Dashboard = () => {
               <div className="media-body order-2 order-lg-1">
                 <h5 className="mt-0 font-weight-bold mb-2">{product.name}</h5>
                 <div style={{ textAlign: 'center' }}>{product.imageUrl && <img src={`data:image/jpg;base64,${_arrayBufferToBase64(product.imageUrl.data)}`} alt="Generic placeholder image"  height={300} width ="100%" className="  order-1 order-lg-2 mb-4" />}</div>
-                <p className="">{product.description}</p>
-
-
-                <div className="d-flex align-items-center justify-content-between mt-1">
-                  <h6 className="font-weight-bold my-2"></h6>
-                </div>
-                <h6 className="font-weight-bold my-2"> </h6>
-                <br />
-
+                <p className=" ">{product.description}</p>
+                <p className="font-weight-bold" style={{color:'red'}} >{product.price} $ </p>
                 <div className ="flex justify-content-between ">
                     <button className="btn btn-primary" 
                       onClick={() => addToCart(product)}>Add to Cart</button>
